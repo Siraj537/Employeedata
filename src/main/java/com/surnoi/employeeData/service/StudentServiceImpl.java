@@ -2,6 +2,7 @@ package com.surnoi.employeeData.service;
 
 import com.surnoi.employeeData.dto.StudentDTO;
 import com.surnoi.employeeData.mapper.StudentMapper;
+import com.surnoi.employeeData.model.Student;
 import com.surnoi.employeeData.repositories.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,9 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public int saveStudent(StudentDTO student) {
-        return (studentRepository.save(studentMapper.studentDTOToStudent(student))).getStudentId();
+        Student oldStudent = studentMapper.studentDTOToStudent(student);
+        oldStudent.setStudentId(student.getStudentId());
+        return (studentRepository.save(oldStudent)).getStudentId();
     }
 
     @Override
