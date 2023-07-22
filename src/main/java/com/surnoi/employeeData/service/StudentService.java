@@ -1,13 +1,17 @@
 package com.surnoi.employeeData.service;
 
-import com.surnoi.employeeData.dto.StudentDTO;
-import com.surnoi.employeeData.model.Student;
+import com.surnoi.employeeData.dto.AuthRequest;
+import com.surnoi.employeeData.dto.StudentSelfDTO;
+import com.surnoi.employeeData.dto.StudentSignUpDTO;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface StudentService {
-    List<StudentDTO> getAll();
-    int saveStudent(StudentDTO student);
-    StudentDTO getStudent(int studentId);
+    List<StudentSignUpDTO> getAll();
+    int saveStudent(StudentSignUpDTO student);
+    StudentSelfDTO getStudent(int studentId);
     String deleteStudent(int studentId);
+    ResponseEntity<String> signup(StudentSignUpDTO student);
+    ResponseEntity<String> login(AuthRequest authRequest);
 }
