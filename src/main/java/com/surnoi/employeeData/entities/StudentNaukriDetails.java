@@ -1,12 +1,16 @@
 package com.surnoi.employeeData.entities;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Data
-public class StudentNaukriDetails {
+@Getter
+@Setter
+public class StudentNaukriDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int naukriId;

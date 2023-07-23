@@ -37,20 +37,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         config.addAllowedMethod("*");
         config.setAllowCredentials(false);
 
-         http.csrf().disable().cors().configurationSource(option ->  config).and()
+        http.csrf().disable().cors().configurationSource(option ->  config).and()
                 .authorizeRequests()
-                .antMatchers("/students/signup","/students/login","/swagger-ui/index.html"
-                ,"/v2/api-docs",
+                .antMatchers("/students/credentials/signup","/students/credentials/login","/swagger-ui/index.html"
+                        ,"/v2/api-docs",
+                        "/students/credentials/forgotpassword",
                         "/configuration/ui",
                         "/swagger-resources/**",
                         "/configuration/security",
                         "/swagger-ui.html",
                         "/students/newuser",
-                 "/h2-console/**",
+                        "/h2-console/**",
                         HttpMethod.OPTIONS.name(),
                         "/webjars/**").permitAll()
                 .and()
-                .authorizeRequests().antMatchers("/students/**")
+                .authorizeRequests().antMatchers("/students/**","/courses/**","*/billing/**")
                 .authenticated().and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

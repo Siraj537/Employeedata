@@ -1,17 +1,25 @@
 package com.surnoi.employeeData.service;
 
-import com.surnoi.employeeData.dto.AuthRequest;
-import com.surnoi.employeeData.dto.StudentSelfDTO;
-import com.surnoi.employeeData.dto.StudentSignUpDTO;
+import com.surnoi.employeeData.dto.*;
 import org.springframework.http.ResponseEntity;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 public interface StudentService {
     List<StudentSignUpDTO> getAll();
+
     int saveStudent(StudentSignUpDTO student);
+
     StudentSelfDTO getStudent(int studentId);
+
     String deleteStudent(int studentId);
-    ResponseEntity<String> signup(StudentSignUpDTO student);
-    ResponseEntity<String> login(AuthRequest authRequest);
+
+    ResponseEntity<ResponseDTO> signup(StudentSignUpDTO student);
+
+    ResponseEntity<ResponseDTO> login(AuthRequestDTO authRequestDTO);
+
+    ResponseEntity<ResponseDTO> changePassword(ChangePasswordDTO changePasswordDTO);
+
+    ResponseEntity<ResponseDTO> forgotPassword(ForgotPasswordDTO forgotPasswordDTO) throws MessagingException;
 }

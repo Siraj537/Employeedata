@@ -2,8 +2,11 @@ package com.surnoi.employeeData.dto;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class StudentNaukriSelftDetailsDTO {
 
     private String naukriUserName;

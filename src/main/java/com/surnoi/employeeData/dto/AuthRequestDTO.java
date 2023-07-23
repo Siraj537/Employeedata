@@ -1,13 +1,12 @@
 package com.surnoi.employeeData.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRequest {
+public class AuthRequestDTO {
 
     private String email;
     private String password;

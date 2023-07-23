@@ -2,12 +2,14 @@ package com.surnoi.employeeData.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Data
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StudentSignUpDTO {
@@ -18,7 +20,7 @@ public class StudentSignUpDTO {
     private String city;
     @NotBlank
     @NotNull
-    private String mobile;
+    private long contactNumber;
     @NotBlank
     @NotNull
     private String email;
@@ -27,5 +29,6 @@ public class StudentSignUpDTO {
     @NotBlank
     @NotNull
     private String password;
+    private String address;
     private StudentNaukriDetailsDTO studentNaukriDetailsDTO;
 }

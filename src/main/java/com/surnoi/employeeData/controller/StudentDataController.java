@@ -16,12 +16,12 @@ public interface StudentDataController {
     @PostMapping("/save")
     ResponseEntity<Integer> saveStudent(@RequestBody StudentSignUpDTO student);
 
-    @GetMapping("/student/get/{id}")
+    @GetMapping("/get/{id}")
     ResponseEntity<StudentSelfDTO> getStudent(@PathVariable(value = "id") int studentId);
 
-    @PutMapping("/student/update")
+    @PutMapping("/update")
     ResponseEntity<Integer> updateStudent(@RequestBody StudentSignUpDTO student);
 
-    @DeleteMapping("/student/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     ResponseEntity<String> deleteStudent(@PathVariable(value = "id") int studentId);
 }
