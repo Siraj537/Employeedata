@@ -79,6 +79,7 @@ public class CourseControllerImpl implements CourseController {
         }
     }
 
+    @PreAuthorize("hasAuthority('user')")
     @Override
     public ResponseEntity<ResponseDTO> registerCourse(String studentId, String courseId) {
         try{
